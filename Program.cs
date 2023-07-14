@@ -23,19 +23,33 @@ namespace ConAppAssignment7
             Console.WriteLine("Total number of elements: " + fruits.Count);
             Console.WriteLine();
 
-            // Check if the ArrayList contains the element "date"
-            bool containsDate = fruits.Contains("date");
-            Console.WriteLine("Does the ArrayList contain 'date'? " + containsDate);
+            // Prompt the user to enter an element to check if it exists in the ArrayList
+            Console.Write("Enter an element to check if it exists in the ArrayList: ");
+            string elementToCheck = Console.ReadLine();
+
+            // Check if the ArrayList contains the user-entered element
+            bool containsElement = fruits.Contains(elementToCheck);
+            Console.WriteLine("Does the ArrayList contain '{0}'? {1}", elementToCheck, containsElement);
             Console.WriteLine();
 
-            // Insert the element "fig" at the second position in the ArrayList
-            fruits.Insert(1, "fig");
+            // Prompt the user to enter an element and the position to insert it in the ArrayList
+            Console.Write("Enter an element to insert in the ArrayList: ");
+            string elementToInsert = Console.ReadLine();
+            Console.Write("Enter the position to insert the element (0 - {0}): ", fruits.Count);
+            int positionToInsert = int.Parse(Console.ReadLine());
 
-            // Remove the element "banana" from the ArrayList
-            fruits.Remove("banana");
+            // Insert the user-entered element at the specified position in the ArrayList
+            fruits.Insert(positionToInsert, elementToInsert);
 
-            // Print all the elements in the ArrayList using a loop
-            Console.WriteLine("Elements in the ArrayList:");
+            // Prompt the user to enter an element to remove from the ArrayList
+            Console.Write("Enter an element to remove from the ArrayList: ");
+            string elementToRemove = Console.ReadLine();
+
+            // Remove the user-entered element from the ArrayList
+            fruits.Remove(elementToRemove);
+
+            // Print all the elements in the ArrayList
+            Console.WriteLine("\nElements in the ArrayList:");
             foreach (var fruit in fruits)
             {
                 Console.WriteLine(fruit);
